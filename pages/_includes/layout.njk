@@ -6,11 +6,24 @@
   <title>{{ title | default("Yacht Rental") }}</title>
   <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body class="{% if page.url == '/' or page.url == '/index.html' %}hero-page{% endif %}">
   {% include "header.njk" %}
   <main>
     {{ content | safe }}
   </main>
   {% include "footer.njk" %}
+  <script>
+    (function() {
+      var header = document.querySelector('.site-header');
+      if (!header) return;
+      var isHeroPage = document.body.classList.contains('hero-page');
+      function updateHeader() {
+        var shouldScroll = isHeroPage ? window.scrollY > 50 : true;
+        header.classList.toggle('scrolled', shouldScroll);
+      }
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
+    })();
+  </script>
 </body>
 </html>

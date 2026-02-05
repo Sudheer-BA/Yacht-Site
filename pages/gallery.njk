@@ -4,7 +4,34 @@ title: Gallery | Yacht Rental
 permalink: /gallery/
 ---
 
-<section class="page-content">
-  <h1>Gallery</h1>
-  <p>Explore our fleet.</p>
+<section class="gallery-page">
+  <div class="gallery-intro">
+    <h1 class="section-heading">Gallery</h1>
+    <p class="section-intro">From sun decks to staterooms, every angle of our fleet is captured here. Browse the gallery to explore the yacht's exterior, interior spaces, and the luxury that awaits you on the water.</p>
+  </div>
+  <div class="gallery-grid" id="gallery-grid">
+    {% for url in gallery.urls %}
+    <div class="gallery-item">
+      <img src="{{ url }}" alt="Yacht charter" loading="lazy">
+    </div>
+    {% endfor %}
+  </div>
+  <div class="gallery-reveal-wrap">
+    <button type="button" class="gallery-reveal-btn" id="gallery-reveal-btn" aria-expanded="false">
+      View All Images
+    </button>
+  </div>
 </section>
+<script>
+  (function() {
+    var btn = document.getElementById('gallery-reveal-btn');
+    var grid = document.getElementById('gallery-grid');
+    if (!btn || !grid) return;
+    btn.addEventListener('click', function() {
+      grid.classList.add('gallery-expanded');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.textContent = 'All Images Shown';
+      btn.disabled = true;
+    });
+  })();
+</script>

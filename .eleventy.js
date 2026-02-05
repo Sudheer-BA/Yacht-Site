@@ -1,5 +1,10 @@
+const assets = require("./_data/assets.js");
+const gallery = require("./_data/gallery.js");
+
 module.exports = function (eleventyConfig) {
-  // Copy images, css, and js to output
+  eleventyConfig.addGlobalData("assets", assets);
+  eleventyConfig.addGlobalData("gallery", gallery);
+
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");

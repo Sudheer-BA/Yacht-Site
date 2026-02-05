@@ -4,7 +4,30 @@ title: Contact | Yacht Rental
 permalink: /contact/
 ---
 
-<section class="page-content">
-  <h1>Contact Us</h1>
-  <p>Get in touch for bookings and inquiries.</p>
+<section class="contact-section">
+  <div class="contact-inner">
+    <header class="contact-header">
+      <h1>Get in Touch</h1>
+      <p>Ready to set sail? Send us your inquiry and we'll respond within 24 hours.</p>
+    </header>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Contact Details</h2>
+        <p><strong>Email</strong><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <p><strong>Phone</strong><br><a href="tel:{{ site.phoneTel }}">{{ site.phone }}</a></p>
+        <p><strong>Location</strong><br>{{ site.location }}</p>
+      </div>
+      <form class="contact-form" action="{{ site.formAction }}" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
+    </div>
+  </div>
 </section>

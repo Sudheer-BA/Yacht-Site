@@ -3,7 +3,114 @@ layout: layout.njk
 title: Home | Yacht Rental
 ---
 
-<section class="hero">
-  <h1>Welcome to Yacht Rental</h1>
-  <p>Experience luxury on the water.</p>
+<section class="hero-slider">
+  <div class="hero-slides">
+    <img src="/images/gallery/1-yacht.jpg" alt="Yacht charter" class="hero-slide">
+    <img src="/images/gallery/2-yacht.jpg" alt="Yacht charter" class="hero-slide">
+    <img src="/images/gallery/3-yacht.jpg" alt="Yacht charter" class="hero-slide">
+  </div>
+  <div class="hero-overlay">
+    <h1>Welcome to Yacht Rental</h1>
+    <p>Experience luxury on the water.</p>
+  </div>
+</section>
+
+<section class="hero-intro">
+  <p>Your trusted partner for luxury yacht charters.</p>
+</section>
+
+<section class="yacht-showcase bento-section">
+  <h2 class="section-heading">See What Awaits You</h2>
+  <p class="section-intro">From bow to stern, every angle tells a story. Sun decks that stretch toward the horizon, cabins designed for rest, and spaces built for gathering. Take a look—your next escape is closer than you think. <a href="/gallery/" class="section-link">View full gallery →</a></p>
+  <div class="bento-grid">
+    <div class="bento-item bento-large">
+      <img src="/images/gallery/4-yacht.jpg" alt="Yacht exterior">
+    </div>
+    <div class="bento-item bento-medium">
+      <img src="/images/gallery/5-yacht.jpg" alt="Yacht deck">
+    </div>
+    <div class="bento-item bento-medium">
+      <img src="/images/gallery/6-yacht.jpg" alt="Yacht interior">
+    </div>
+    <div class="bento-item bento-small">
+      <img src="/images/gallery/7-yacht.jpg" alt="Yacht detail">
+    </div>
+    <div class="bento-item bento-small">
+      <img src="/images/gallery/8-yacht.jpg" alt="Yacht cabin">
+    </div>
+    <div class="bento-item bento-small">
+      <img src="/images/gallery/9-yacht.jpg" alt="Yacht view">
+    </div>
+  </div>
+</section>
+
+<section class="yacht-video-section">
+  <h2 class="section-heading">Step Aboard—From Your Screen</h2>
+  <p class="section-intro">Press play and walk through every deck, cabin, and corner. No appointment needed. See the yacht in motion and imagine yourself there.</p>
+  <div class="video-container">
+    <video
+      controls
+      playsinline
+      poster="/images/gallery/1-yacht.jpg"
+      preload="metadata"
+    >
+      <source src="/images/Video/1-video-66-azimut-full-walkthrough.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<section class="destinations-section">
+  <h2 class="section-heading">Explore Destinations</h2>
+  <p class="section-intro">Where will your yacht take you? Set your course for these popular waters—each offers its own blend of scenery, calm, and adventure.</p>
+  <div class="destinations-grid">
+    <article class="destination-card">
+      <div class="destination-image">
+        <img src="/images/destinations/fort-lauderdale.png" alt="Fort Lauderdale">
+        <span class="destination-name">Fort Lauderdale</span>
+      </div>
+    </article>
+    <article class="destination-card">
+      <div class="destination-image">
+        <img src="/images/destinations/miami.png" alt="Miami">
+        <span class="destination-name">Miami</span>
+      </div>
+    </article>
+    <article class="destination-card">
+      <div class="destination-image">
+        <img src="/images/destinations/key-west.png" alt="Key West">
+        <span class="destination-name">Key West</span>
+      </div>
+    </article>
+    <article class="destination-card">
+      <div class="destination-image">
+        <img src="/images/destinations/bahamas.png" alt="The Bahamas">
+        <span class="destination-name">The Bahamas</span>
+      </div>
+    </article>
+  </div>
+  <div class="destinations-cta">
+    <a href="/contact/" class="cta-button">Plan Your Route</a>
+  </div>
+</section>
+
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+  <h2 class="section-heading">What Guests Say</h2>
+  <p class="section-intro">Real experiences from those who've sailed with us.</p>
+  <div class="testimonials-grid">
+    <article class="testimonial-card">
+      <blockquote class="testimonial-quote">An unforgettable day on the water. The yacht was pristine, and the crew made everything effortless.</blockquote>
+      <footer class="testimonial-author">— Sarah M., Miami</footer>
+    </article>
+    <article class="testimonial-card">
+      <blockquote class="testimonial-quote">We chartered for a family celebration. Exceeded every expectation. Already planning our next trip.</blockquote>
+      <footer class="testimonial-author">— James K., Fort Lauderdale</footer>
+    </article>
+    <article class="testimonial-card">
+      <blockquote class="testimonial-quote">The Key West run was magical. Smooth booking, beautiful vessel. Highly recommend.</blockquote>
+      <footer class="testimonial-author">— Elena R., Tampa</footer>
+    </article>
+  </div>
+  </div>
 </section>
