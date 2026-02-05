@@ -1,32 +1,39 @@
 ---
 layout: layout.njk
-title: Contact | Yacht Rental
+title: Contact | Yacht Charters
 permalink: /contact/
 ---
 
 <section class="contact-section">
+  <div class="contact-overlay"></div>
   <div class="contact-inner">
     <header class="contact-header">
       <h1>Get in Touch</h1>
       <p>Ready to set sail? Send us your inquiry and we'll respond within 24 hours.</p>
     </header>
-    <div class="contact-grid">
+    <div class="contact-card">
       <div class="contact-info">
         <h2>Contact Details</h2>
-        <p><strong>Email</strong><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-        <p><strong>Phone</strong><br><a href="tel:{{ site.phoneTel }}">{{ site.phone }}</a></p>
-        <p><strong>Location</strong><br>{{ site.location }}</p>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Email</span>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Phone</span>
+          <a href="tel:{{ site.phoneTel }}">{{ site.phone }}</a>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Location</span>
+          <span>{{ site.location }}</span>
+        </div>
       </div>
       <form class="contact-form" action="{{ site.formAction }}" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        <button type="submit" class="cta-button">Send Message</button>
+        <input type="text" id="firstName" name="firstName" required placeholder="First Name">
+        <input type="text" id="lastName" name="lastName" required placeholder="Last Name">
+        <input type="email" id="email" name="email" required placeholder="Email">
+        <input type="tel" id="phone" name="phone" placeholder="Phone">
+        <textarea id="message" name="message" rows="4" required placeholder="Message"></textarea>
+        <button type="submit" class="contact-submit-btn">Send Message</button>
       </form>
     </div>
   </div>

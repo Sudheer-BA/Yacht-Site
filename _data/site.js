@@ -2,7 +2,7 @@
 module.exports = {
   formAction: "https://formspree.io/f/YOUR_FORM_ID",
   email: "info@yachtrental.com",
-  phone: "+1 (234) 567-890",
-  phoneTel: "+1234567890",
+  phone: "(954) 884-0070",
+  phoneTel: "+19548840070",
   location: "Fort Lauderdale, FL",
 };
