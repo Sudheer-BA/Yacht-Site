@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title | default("Yacht Rental") }}</title>
+  <title>{{ metaTitle | default(title) | default("Yacht Rental") }}</title>
+  {% if metaDescription %}
+  <meta name="description" content="{{ metaDescription }}">
+  {% endif %}
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="{% if page.url == '/' or page.url == '/index.html' or page.url == '/contact/' or page.url == '/contact/index.html' %}hero-page{% endif %}">

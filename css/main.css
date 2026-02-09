@@ -108,6 +108,12 @@ body {
   text-decoration: none;
 }
 
+.logo-img {
+  display: block;
+  height: 4rem;
+  width: auto;
+}
+
 .site-header .nav-links a {
   position: relative;
   color: inherit;
@@ -393,6 +399,9 @@ main > .page-content {
   .logo {
     font-size: 1.1rem;
   }
+  .logo-img {
+    height: 2.75rem;
+  }
 }
 
 @media (max-width: 400px) {
@@ -401,6 +410,9 @@ main > .page-content {
   }
   .logo {
     font-size: 1rem;
+  }
+  .logo-img {
+    height: 2rem;
   }
 }
 
@@ -557,6 +569,86 @@ main > .page-content {
   margin-top: 2rem;
 }
 
+/* What we offer - before destinations */
+.offerings-section {
+  padding: 3rem 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.offerings-block {
+  padding: 2.5rem 2rem;
+  background: linear-gradient(180deg, #f8fafb 0%, #fff 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(10, 77, 104, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+.offerings-lead {
+  font-size: 1.25rem;
+  color: #555;
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+}
+
+.offerings-heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 0.5rem;
+}
+
+.offerings-intro {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+}
+
+.offerings-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offerings-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.offerings-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+  border-radius: 50%;
+}
+
+@media (max-width: 700px) {
+  .offerings-section {
+    padding: 2rem 1rem;
+  }
+  .offerings-block {
+    padding: 2rem 1.5rem;
+  }
+  .offerings-lead {
+    font-size: 1.1rem;
+  }
+  .offerings-list {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
 .cta-button {
   display: inline-block;
   padding: 0.75rem 1.75rem;
@@ -700,6 +792,7 @@ main > .page-content {
   border-radius: 8px;
   aspect-ratio: 4 / 3;
   background: #f0f0f0;
+  cursor: pointer;
 }
 
 .gallery-item img {
@@ -742,6 +835,94 @@ main > .page-content {
 .gallery-reveal-btn:disabled {
   opacity: 0.7;
   cursor: default;
+}
+
+/* Gallery lightbox - fullscreen viewer */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.95);
+}
+
+/* Must override display when hidden - .gallery-lightbox sets display:flex which overrides [hidden] */
+.gallery-lightbox[hidden] {
+  display: none !important;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.lightbox-image-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  background: rgba(10, 77, 104, 0.85);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s ease;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: var(--color-primary);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+}
+
+.lightbox-next {
+  right: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .lightbox-prev,
+  .lightbox-next {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.25rem;
+  }
+  .lightbox-prev {
+    left: 0.75rem;
+  }
+  .lightbox-next {
+    right: 0.75rem;
+  }
 }
 
 @media (max-width: 900px) {
