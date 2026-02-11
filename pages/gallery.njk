@@ -11,8 +11,8 @@ permalink: /gallery/
   </div>
   <div class="gallery-grid" id="gallery-grid">
     {% for url in gallery.urls %}
-    <div class="gallery-item" data-index="{{ loop.index0 }}" data-src="{{ url }}" role="button" tabindex="0" aria-label="View image {{ loop.index }}">
-      <img src="{{ url }}" alt="Yacht charter" loading="lazy">
+    <div class="gallery-item" data-index="{{ loop.index0 }}" data-src="{{ url | url }}" role="button" tabindex="0" aria-label="View image {{ loop.index }}">
+      <img src="{{ url | url }}" alt="Yacht charter" loading="lazy">
     </div>
     {% endfor %}
   </div>

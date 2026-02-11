@@ -3,17 +3,17 @@
   <div class="footer-main">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="/" class="footer-logo">Yacht Rental</a>
+        <a href="{{ '/' | url }}" class="footer-logo">Yacht Rental</a>
         <p class="footer-tagline">Luxury yacht charters in South Florida. Experience the water your way.</p>
       </div>
       <div class="footer-columns">
         <div class="footer-col">
           <h3 class="footer-heading">Explore</h3>
           <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/gallery/">Gallery</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="{{ '/' | url }}">Home</a></li>
+            <li><a href="{{ '/about/' | url }}">About</a></li>
+            <li><a href="{{ '/gallery/' | url }}">Gallery</a></li>
+            <li><a href="{{ '/contact/' | url }}">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -32,7 +32,7 @@
             <li><a href="tel:{{ site.phoneTel }}">{{ site.phone }}</a></li>
             <li class="footer-contact-text">{{ site.location }}</li>
           </ul>
-          <a href="/contact/" class="footer-cta">Inquire Now</a>
+          <a href="{{ '/contact/' | url }}" class="footer-cta">Inquire Now</a>
         </div>
       </div>
     </div>

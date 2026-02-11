@@ -676,7 +676,7 @@ main > .page-content {
   position: relative;
   padding: 5rem 2rem;
   margin: 0 auto;
-  background-image: url("/images/gallery/2-yacht.jpg");
+  background-image: url("../images/gallery/2-yacht.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
@@ -1026,7 +1026,7 @@ main > .page-content {
   position: relative;
   min-height: calc(100vh - 6rem);
   padding: 9rem 2rem 5rem;
-  background-image: url("/images/gallery/10-yacht.jpg");
+  background-image: url("../images/gallery/10-yacht.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

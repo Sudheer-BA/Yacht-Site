@@ -8,7 +8,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("css");
 
+  const pathPrefix = process.env.PATH_PREFIX || "";
   return {
+    pathPrefix,
     dir: {
       input: "pages",
       output: "_site",
