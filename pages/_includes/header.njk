@@ -1,11 +1,11 @@
 <header class="site-header">
   <nav class="site-nav">
-    <a href="/" class="logo">Yacht Charters</a>
+    <a href="{{ '/' | url }}" class="logo">Yacht Charters</a>
     <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/gallery/">Gallery</a></li>
-      <li><a href="/contact/">Contact</a></li>
+      <li><a href="{{ '/' | url }}">Home</a></li>
+      <li><a href="{{ '/about/' | url }}">About</a></li>
+      <li><a href="{{ '/gallery/' | url }}">Gallery</a></li>
+      <li><a href="{{ '/contact/' | url }}">Contact</a></li>
     </ul>
     <div class="header-contact">
       <span class="header-contact-label">For booking or questions</span>

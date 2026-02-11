@@ -7,7 +7,7 @@
   {% if metaDescription %}
   <meta name="description" content="{{ metaDescription }}">
   {% endif %}
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
 </head>
 <body class="{% if page.url == '/' or page.url == '/index.html' or page.url == '/contact/' or page.url == '/contact/index.html' %}hero-page{% endif %}">
   {% include "header.njk" %}
