@@ -1,2 +1,6 @@
 *.psd
+node_modules/
+_site/
 
+# Large video - exceeds GitHub 100MB limit (host elsewhere or use Git LFS)
+images/Video/

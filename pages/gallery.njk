@@ -1,0 +1,143 @@
+---
+layout: layout.njk
+title: Gallery | Yacht Rental
+permalink: /gallery/
+---
+
+<section class="gallery-page">
+  <div class="gallery-intro">
+    <h1 class="section-heading">Gallery</h1>
+    <p class="section-intro">From sun decks to staterooms, every angle of our fleet is captured here. Browse the gallery to explore the yacht's exterior, interior spaces, and the luxury that awaits you on the water.</p>
+  </div>
+  <div class="gallery-grid" id="gallery-grid">
+    {% for url in gallery.urls %}
+    <div class="gallery-item" data-index="{{ loop.index0 }}" data-src="{{ url }}" role="button" tabindex="0" aria-label="View image {{ loop.index }}">
+      <img src="{{ url }}" alt="Yacht charter" loading="lazy">
+    </div>
+    {% endfor %}
+  </div>
+  <div class="gallery-reveal-wrap">
+    <button type="button" class="gallery-reveal-btn" id="gallery-reveal-btn" aria-expanded="false">
+      View All Images
+    </button>
+  </div>
+</section>
+
+<div id="gallery-lightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+  <button type="button" class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">&larr;</button>
+  <div class="lightbox-image-wrap">
+    <img class="lightbox-image" id="lightbox-image" src="" alt="Yacht charter">
+  </div>
+  <button type="button" class="lightbox-next" id="lightbox-next" aria-label="Next image">&rarr;</button>
+</div>
+
+<script>
+  (function() {
+    var btn = document.getElementById('gallery-reveal-btn');
+    var grid = document.getElementById('gallery-grid');
+    if (!btn || !grid) return;
+    btn.addEventListener('click', function() {
+      grid.classList.add('gallery-expanded');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.textContent = 'All Images Shown';
+      btn.disabled = true;
+    });
+  })();
+
+  (function() {
+    var lightbox = document.getElementById('gallery-lightbox');
+    var backdrop = document.getElementById('lightbox-backdrop');
+    var imageEl = document.getElementById('lightbox-image');
+    var prevBtn = document.getElementById('lightbox-prev');
+    var nextBtn = document.getElementById('lightbox-next');
+    var items = document.querySelectorAll('.gallery-item[data-index][data-src]');
+
+    if (!lightbox || !imageEl || !items.length) return;
+
+    var urls = Array.from(items).map(function(it) { return it.getAttribute('data-src'); });
+    var currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      imageEl.src = urls[index];
+      lightbox.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      var req = lightbox.requestFullscreen || lightbox.webkitRequestFullscreen || lightbox.msRequestFullscreen;
+      if (req) req.call(lightbox).catch(function() {});
+      document.addEventListener('keydown', handleKeydown);
+    }
+
+    function closeLightbox() {
+      var el = document.fullscreenElement || document.webkitFullscreenElement;
+      if (el === lightbox) {
+        var exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) exit.call(document);
+      }
+      lightbox.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleKeydown);
+    }
+
+    function goPrev() {
+      currentIndex = currentIndex <= 0 ? urls.length - 1 : currentIndex - 1;
+      imageEl.src = urls[currentIndex];
+    }
+
+    function goNext() {
+      currentIndex = currentIndex >= urls.length - 1 ? 0 : currentIndex + 1;
+      imageEl.src = urls[currentIndex];
+    }
+
+    function handleKeydown(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goPrev();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goNext();
+      }
+    }
+
+    /* Close when clicking backdrop (dark area) - not when clicking image or arrows */
+    lightbox.addEventListener('click', function(e) {
+      if (!e.target.closest('.lightbox-image-wrap') && !e.target.closest('.lightbox-prev') && !e.target.closest('.lightbox-next')) {
+        closeLightbox();
+      }
+    });
+
+    prevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      goPrev();
+    });
+
+    nextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      goNext();
+    });
+
+    function onFullscreenChange() {
+      var el = document.fullscreenElement || document.webkitFullscreenElement;
+      if (!el) closeLightbox();
+    }
+    document.addEventListener('fullscreenchange', onFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+
+    items.forEach(function(item) {
+      item.addEventListener('click', function() {
+        var idx = parseInt(item.getAttribute('data-index'), 10);
+        openLightbox(idx);
+      });
+      item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          var idx = parseInt(item.getAttribute('data-index'), 10);
+          openLightbox(idx);
+        }
+      });
+    });
+  })();
+</script>

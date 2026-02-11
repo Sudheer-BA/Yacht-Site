@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ metaTitle | default(title) | default("Yacht Rental") }}</title>
+  {% if metaDescription %}
+  <meta name="description" content="{{ metaDescription }}">
+  {% endif %}
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="{% if page.url == '/' or page.url == '/index.html' or page.url == '/contact/' or page.url == '/contact/index.html' %}hero-page{% endif %}">
+  {% include "header.njk" %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script>
+    (function() {
+      var header = document.querySelector('.site-header');
+      if (!header) return;
+      var isHeroPage = document.body.classList.contains('hero-page');
+      function updateHeader() {
+        var shouldScroll = isHeroPage ? window.scrollY > 50 : true;
+        header.classList.toggle('scrolled', shouldScroll);
+      }
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
+    })();
+  </script>
+</body>
+</html>
