@@ -197,45 +197,42 @@ main > .page-content {
   padding: var(--spacing);
 }
 
-/* Hero slider - full viewport for maximum visual impact */
-.hero-slider {
+/* Home hero - single static image, full viewport */
+.hero-home {
   position: relative;
   width: 100%;
   height: 100vh;
   min-height: 400px;
   overflow: hidden;
+  background-color: #0a1628;
+}
+
+.hero-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/gallery/1-yacht.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: 0;
 }
 
 @media (max-width: 600px) {
-  .hero-slider {
+  .hero-home {
     min-height: 350px;
   }
 }
 
-.hero-slides {
+.hero-home-overlay {
   position: absolute;
   inset: 0;
-  background: #0a1628;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.25) 100%);
+  z-index: 0;
 }
 
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  animation: hero-fade 12s infinite;
-}
-
-.hero-slide:nth-child(1) { animation-delay: 0s; }
-.hero-slide:nth-child(2) { animation-delay: 4s; }
-.hero-slide:nth-child(3) { animation-delay: 8s; }
-
-@keyframes hero-fade {
-  0%, 28% { opacity: 1; }
-  33%, 94% { opacity: 0; }
-  100% { opacity: 1; }
+.hero-home .hero-overlay {
+  z-index: 1;
 }
 
 .hero-overlay {
@@ -245,21 +242,20 @@ main > .page-content {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background: rgba(0, 0, 0, 0.15);
   color: white;
   text-align: left;
-  padding: 18rem 2rem 3rem 6rem;
+  padding: 18rem 2rem 6.5rem 4.5rem;
 }
 
 @media (max-width: 900px) {
   .hero-overlay {
-    padding: 14rem 2rem 2.5rem 4rem;
+    padding: 14rem 2rem 5rem 3rem;
   }
 }
 
 @media (max-width: 600px) {
   .hero-overlay {
-    padding: 10rem 1.5rem 2rem 1.5rem;
+    padding: 10rem 1.5rem 4rem 1.5rem;
   }
   .hero-overlay-content {
     max-width: 100%;
@@ -277,30 +273,38 @@ main > .page-content {
 }
 
 .hero-overlay-content {
-  max-width: 36rem;
+  max-width: 32rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-overlay h1 {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 600;
-  margin: 0 0 0.5rem;
+  line-height: 1.2;
+  margin: 0 0 1.2rem;
   letter-spacing: 0.02em;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero-overlay p {
-  font-size: 1.25rem;
-  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+  margin: 0 0 2.25rem;
+  line-height: 1.5;
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .hero-book-btn {
   display: inline-block;
   padding: 0.85rem 2rem;
-  background: transparent;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+  align-self: flex-start;
+  background: #f6f4f0;
+  color: var(--color-primary);
+  border: 1px solid #f6f4f0;
   border-radius: 4px;
   font-family: var(--font-body);
   font-weight: 500;
@@ -312,9 +316,9 @@ main > .page-content {
 }
 
 .hero-book-btn:hover {
-  background: white;
-  color: var(--color-primary);
-  border-color: white;
+  background: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-intro {
@@ -2102,12 +2106,6 @@ main > .page-content {
   position: relative;
 }
 
-.footer-accent {
-  height: 3px;
-  background: var(--color-accent);
-  width: 100%;
-}
-
 .footer-main {
   padding: 2.5rem 2rem 2rem;
 }
@@ -2179,11 +2177,12 @@ main > .page-content {
 .footer-links li,
 .footer-contact-list li {
   margin-bottom: 0.65rem;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .footer-links a,
 .footer-contact-list a {
-  color: rgba(255, 255, 255, 0.88);
+  color: inherit;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.2s;
