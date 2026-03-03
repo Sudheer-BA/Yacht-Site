@@ -1,8 +1,10 @@
 // Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io
+// Set siteUrl to your production domain (no trailing slash) for canonical URLs and SEO
 module.exports = {
+  siteUrl: "https://www.yachtchartersflorida.com",
   formAction: "https://formspree.io/f/mkovoenl",
   email: "info@yachtrental.com",
-  phone: "(954) 884-0070",
-  phoneTel: "+19548840070",
+  phone: "(954) 488-1476",
+  phoneTel: "+19544881476",
   location: "Fort Lauderdale, FL",
 };

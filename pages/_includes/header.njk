@@ -1,13 +1,20 @@
-<header class="site-header">
+<header class="site-header" id="site-header">
   <nav class="site-nav">
     <a href="{{ '/' | url }}" class="logo">Yacht Charters</a>
-    <ul class="nav-links">
-      <li><a href="{{ '/' | url }}">Home</a></li>
-      <li><a href="{{ '/about/' | url }}">About</a></li>
-      <li><a href="{{ '/charters/' | url }}">Charters & Rates</a></li>
-      <li><a href="{{ '/gallery/' | url }}">Gallery</a></li>
-      <li><a href="{{ '/contact/' | url }}">Contact</a></li>
-    </ul>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-dropdown">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <div class="nav-dropdown" id="nav-dropdown" role="navigation">
+      <ul class="nav-links">
+        <li><a href="{{ '/' | url }}">Home</a></li>
+        <li><a href="{{ '/about/' | url }}">About</a></li>
+        <li><a href="{{ '/charters/' | url }}">Charters & Rates</a></li>
+        <li><a href="{{ '/gallery/' | url }}">Gallery</a></li>
+        <li><a href="{{ '/contact/' | url }}">Contact</a></li>
+      </ul>
+    </div>
     <div class="header-contact">
       <span class="header-contact-label">For booking or questions</span>
       <a href="tel:{{ site.phoneTel }}" class="header-contact-phone">{{ site.phone }}</a>
