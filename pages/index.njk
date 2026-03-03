@@ -51,7 +51,11 @@ metaDescription: "Yacht Charters Florida is based in Fort Lauderdale offering fa
       poster="{{ '/images/gallery/1-yacht.jpg' | url }}"
       preload="metadata"
     >
-      <source src="{{ '/images/Video/1-video-66-azimut-full-walkthrough.mp4' | url }}" type="video/mp4">
+      {% if site.videoWalkthroughIsExternal %}
+      <source src="{{ site.videoWalkthroughUrl }}" type="video/mp4">
+      {% else %}
+      <source src="{{ site.videoWalkthroughUrl | url }}" type="video/mp4">
+      {% endif %}
       Your browser does not support the video tag.
     </video>
   </div>
