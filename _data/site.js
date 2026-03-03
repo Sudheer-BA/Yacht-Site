@@ -7,4 +7,8 @@ module.exports = {
   phone: "(954) 488-1476",
   phoneTel: "+19544881476",
   location: "Fort Lauderdale, FL",
+
+  // Homepage walkthrough video: GitHub Release "Yacht Full Video" (tag Yacht-Video).
+  videoWalkthroughUrl: "https://github.com/Sudheer-BA/Yacht-Site/releases/download/Yacht-Video/1-video-66-azimut-full-walkthrough.mp4",
+  videoWalkthroughIsExternal: true,
 };
