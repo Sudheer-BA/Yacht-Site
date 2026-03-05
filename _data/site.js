@@ -3,7 +3,7 @@
 module.exports = {
   siteUrl: "https://www.yachtchartersflorida.com",
   formAction: "https://formspree.io/f/mkovoenl",
-  email: "info@yachtrental.com",
+  email: "help@yachtcharterfortlauderdale.com",
   phone: "(954) 488-1476",
   phoneTel: "+19544881476",
   location: "Fort Lauderdale, FL",
