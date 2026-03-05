@@ -8,6 +8,7 @@
   <meta name="description" content="{{ metaDescription }}">
   {% endif %}
   <link rel="canonical" href="{{ site.siteUrl }}{{ page.url }}">
+  <link rel="icon" href="{{ '/images/logos/Yacht logo.jpg' | url }}" type="image/jpeg">
   {% set schema = site | schemaForPage(page, metaTitle or title, metaDescription) %}
   <script type="application/ld+json">{{ schema | json | safe }}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
